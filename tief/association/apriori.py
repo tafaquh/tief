@@ -20,10 +20,6 @@ def support(_item):
   """
   return itemFreq(_item)/len(dataset)
 
-def fit(data):
-  global dataset
-  dataset = getUnique(data)
-
 def getSupportwithFilter(dataset, min_sup = 0.5):
   result = []
   for data in dataset:
@@ -39,9 +35,9 @@ def getUnique(arr):
   return list(set(x for l in arr for x in l))
 
 def apriori(data, min_support=0.5):
-  fit(data)
+  global dataset
+  dataset = getUnique(data)
   all_support = []
-
   data_filtered = np.array(getSupportwithFilter(dataset, min_support))[:,0]
 
   for i in range(1,4):
