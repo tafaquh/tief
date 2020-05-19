@@ -5,6 +5,26 @@ import pandas as pd
 
 dataset = []
 
+def itemFreq(_item):
+  """
+    Return support value
+    _item: list of string, ex ['123'] or ['123', '124']
+    dataset: list of list of string, ex [['123'], ['123', '124']]
+  """
+  return len([row for row in dataset if set(_item).issubset(row)])
+
+def support(_item):
+  """
+    Return support value
+    _item: list of string, ex ['123'] or ['123', '124']
+    dataset: list of list of string, ex [['123'], ['123', '124']]
+  """
+  return itemFreq(_item)/len(dataset)
+
+def fit(data):
+  global dataset
+  dataset = getUnique(data)
+
 def getSupportwithFilter(dataset, min_sup = 0.5):
   result = []
   for data in dataset:
@@ -20,8 +40,7 @@ def getUnique(arr):
   return list(set(x for l in arr for x in l))
 
 def apriori(data, min_support=0.5):
-  global dataset
-  dataset = getUnique(data)
+  fit(data)
   all_support = []
 
   data_filtered = np.array(getSupportwithFilter(dataset, min_support))[:,0]

@@ -1,6 +1,15 @@
-from .calc import confidence, support
+from .apriori import support
 import pandas as pd
 import itertools
+
+def confidence(_item, next_item):
+  """
+    Return confidence value
+    _item: list of string, ex ['123'] or ['123', '124']
+    next_item: list of string, ex ['123'] or ['123', '124']
+  """
+  join = _item + next_item
+  return support(join)/support(_item)
 
 def has_duplicates(iterable):
   l = list(itertools.chain(*iterable)) # in case iterable is an iterator
