@@ -41,8 +41,13 @@ def apriori(data, min_support=0.5):
   all_support = []
   data_filtered = np.array(getSupportwithFilter(data, min_support))[:,0]
   
-  for i in range(1,4):
+  for i in range(1,len(data)):
     #Get Combination
     combi = getCombination(data_filtered, i)
-    all_support.extend(getSupportwithFilter(combi, min_support))
+    supp_list = getSupportwithFilter(combi, min_support)
+
+    if supp_list == []: break
+    else:
+      all_support.extend(supp_list)
+      
   return pd.DataFrame(all_support, columns=['ItemSet', 'Count', 'Support'])
