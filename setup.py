@@ -21,7 +21,6 @@ setup(
   install_requires=[            # I get to this in a second
     'numpy',
     'pandas',
-    'itertools',
   ],
   classifiers=[
     "Programming Language :: Python :: 3",
