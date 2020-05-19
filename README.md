@@ -13,6 +13,10 @@ Dillinger uses a number of open source projects to work properly:
 TIEF AI requires [Python](https://www.python.org/downloads/) v3.6+ to run. Make sure you already installed python.
 Now install 
 
+```sh
+$ pip install tief
+```
+
 ## Association Rule
 a rule-based machine learning method for discovering interesting relations between variables
 
