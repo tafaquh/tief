@@ -36,10 +36,11 @@ def getUnique(arr):
 
 def apriori(data, min_support=0.5):
   global dataset
-  dataset = getUnique(data)
+  dataset = data
+  data = getUnique(data)
   all_support = []
-  data_filtered = np.array(getSupportwithFilter(dataset, min_support))[:,0]
-
+  data_filtered = np.array(getSupportwithFilter(data, min_support))[:,0]
+  
   for i in range(1,4):
     #Get Combination
     combi = getCombination(data_filtered, i)
