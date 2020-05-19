@@ -5,6 +5,6 @@
 # License: MIT
 
 from .association.apriori import apriori
-from .association.association_rule import association_rules
+from .association.association_rule import association_rule
 
-__all__ = ["apriori", "association_rules"]
+__all__ = ["apriori", "association_rule"]
